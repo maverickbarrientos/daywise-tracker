@@ -2,22 +2,22 @@
 
 ## Project purpose
 
-Daywise Tracker is a personal organizer for tracking bills, groceries to buy, and other necessities. Keep changes focused on these personal tracking needs rather than turning the app into a general-purpose task or finance platform.
+Daywise Tracker is a personal organizer for bills, groceries to buy, and other necessities. Keep changes focused on those needs rather than turning the app into a general-purpose task or finance platform.
 
 ## Stack and architecture
 
-- The application uses Next.js.
-- Data is stored in JSON files. Preserve the existing JSON data shape and access patterns when working with persisted data; inspect the current implementation before changing either.
-- Build the interface from reusable components, using shadcn/ui where appropriate and Tailwind CSS for styling.
-- Follow the existing app structure and routing patterns once established; do not assume a particular Next.js router or JSON storage location without checking the code.
+- Use Next.js App Router file-based routing: route pages and layouts live under `src/app`.
+- Shared UI belongs under `src/components`; shadcn/ui primitives are in `src/components/ui`, styled with Tailwind CSS v4.
+- The initial category data is `src/data/tracker.json`. Inspect and preserve its existing shape before extending data access or persistence.
+- Follow the installed Next.js version and current project patterns. The Next.js guidance in `AGENTS.md` requires consulting the relevant documentation under `node_modules/next/dist/docs/` before adding framework code.
 
 ## Working with the project owner
 
-- Before generating or changing application code, present a concise plan and state the assumptions that affect behavior or scope. Wait for the owner to confirm alignment before implementing.
+- Before generating or changing application code, present a concise plan and state assumptions that affect behavior or scope. Wait for the owner's confirmation before implementing.
 - Keep proposed functionality aligned with bills, grocery purchasing, and necessities tracking. Ask before broadening that scope or making choices that change how tracked data is stored or managed.
 
-## Build, test, and lint
+## Build and lint
 
-- Check `package.json` and the repository's package-manager lockfile for the authoritative scripts and package manager before running commands; script names and the test runner have not been established here.
-- When a test runner is present, use its single-test or file-filter option for focused validation as well as the relevant broader check.
-- Before opening a pull request, run the build and any existing tests locally and report the results in PR description.
+- Install dependencies with `npm ci`.
+- Run the development server with `npm run dev`.
+- Run lint with `npm run lint` and a production build with `npm run build`.

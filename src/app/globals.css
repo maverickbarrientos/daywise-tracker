@@ -1,0 +1,57 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: Arial, Helvetica, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-heading: Arial, Helvetica, sans-serif;
+  --color-border: var(--border);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+}
+
+:root {
+  --background: oklch(0.98 0.012 88);
+  --foreground: oklch(0.25 0.025 50);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.25 0.025 50);
+  --muted: oklch(0.95 0.012 88);
+  --muted-foreground: oklch(0.52 0.025 50);
+  --primary: oklch(0.42 0.09 155);
+  --primary-foreground: oklch(0.98 0.01 90);
+  --secondary: oklch(0.94 0.015 88);
+  --secondary-foreground: oklch(0.32 0.025 50);
+  --border: oklch(0.89 0.015 80);
+  --ring: oklch(0.62 0.08 155);
+  --radius: 0.75rem;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    @apply font-sans;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
