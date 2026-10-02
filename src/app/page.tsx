@@ -5,8 +5,11 @@ import {
   Sparkles,
 } from "lucide-react";
 import Link from "next/link";
+import { getServerSession } from "next-auth";
 import tracker from "@/data/tracker.json";
 import { TrackerSection } from "@/components/tracker-section";
+import { LogoutButton } from "@/components/auth/logout-button";
+import { authOptions } from "@/lib/auth";
 
 const sections = [
   {
@@ -34,7 +37,9 @@ const sections = [
 
 const totalItems = sections.reduce((total, section) => total + section.itemCount, 0);
 
-export default function Home() {
+export default async function Home() {
+  const session = await getServerSession(authOptions);
+
   return (
     <main className="min-h-screen px-5 py-6 sm:px-8 sm:py-10">
       <div className="mx-auto max-w-6xl">
@@ -49,9 +54,12 @@ export default function Home() {
             </span>
             <span className="text-lg font-semibold tracking-tight">daywise</span>
           </Link>
-          <span className="rounded-full border border-border bg-card px-3 py-1.5 text-xs font-medium text-muted-foreground">
-            PERSONAL TRACKER
-          </span>
+          <div className="flex items-center gap-3">
+            <span className="hidden text-sm text-muted-foreground sm:inline">
+              {session?.user?.email}
+            </span>
+            <LogoutButton />
+          </div>
         </header>
 
         <section

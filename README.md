@@ -11,6 +11,10 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
+For MySQL and authentication setup, see [docs/DEPLOY.md](./docs/DEPLOY.md).
+Copy `.env.example` to `.env.local` and configure the local database and
+NextAuth secrets before signing up.
+
 ## Checks
 
 ```bash

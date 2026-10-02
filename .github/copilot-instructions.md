@@ -9,6 +9,8 @@ Daywise Tracker is a personal organizer for bills, groceries to buy, and other n
 - Use Next.js App Router file-based routing: route pages and layouts live under `src/app`.
 - Shared UI belongs under `src/components`; shadcn/ui primitives are in `src/components/ui`, styled with Tailwind CSS v4.
 - The initial category data is `src/data/tracker.json`. Inspect and preserve its existing shape before extending data access or persistence.
+- Authentication uses NextAuth v4 JWT sessions and MySQL users; shared auth/database helpers live under `src/lib`, and the Next.js 16 request gate is `src/proxy.ts`.
+- Read `docs/SPEC.md` for product scope and `docs/DEPLOY.md` for local MySQL and auth environment setup.
 - Follow the installed Next.js version and current project patterns. The Next.js guidance in `AGENTS.md` requires consulting the relevant documentation under `node_modules/next/dist/docs/` before adding framework code.
 
 ## Working with the project owner
